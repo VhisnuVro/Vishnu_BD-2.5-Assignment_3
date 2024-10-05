@@ -240,12 +240,12 @@ app.get('/hotels/sort/rating', (req, res) => {
 
 //Endpoint 3: Get the Hotels sorted based on their Reviews
 let getHotelByReviews = (h1, h2, reviews) => {
-  if (reviews === 'low-to-high') return h1.reviews - h2.reviews;
-  else if (reviews === 'high-to-low') return h2.reviews - h1.reviews;
+  if (reviews === 'least-to-most') return h1.reviews - h2.reviews;
+  else if (reviews === 'most-to-least') return h2.reviews - h1.reviews;
 };
 app.get('/hotels/sort/reviews', (req, res) => {
-  // /hotels/sort/reviews?reviews=low-to-high
-  // /hotels/sort/reviews?reviews=high-to-low
+  // /hotels/sort/reviews?reviews=least-to-most
+  // /hotels/sort/reviews?reviews=most-to-least
   let reviews = req.query.reviews;
   let result = hotels.slice();
   result.sort((h1, h2) => getHotelByReviews(h1, h2, reviews));
