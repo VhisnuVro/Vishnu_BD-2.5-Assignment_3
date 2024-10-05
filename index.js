@@ -6,7 +6,6 @@ const port = 3010;
 let cors = require('cors');
 
 app.use(cors());
-
 app.use(express.static('static'));
 let hotels = [
   {
